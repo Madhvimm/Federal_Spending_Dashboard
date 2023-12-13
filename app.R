@@ -124,7 +124,21 @@ ui <- fluidPage(
                       tags$br(),  # Adds a line break
                       tags$h4("Thank you for visiting our Federal Spending Analysis Dashboard. Hope this tool empowers you with a clearer 
                               understanding of federal spending patterns."),
-                      tags$br()  # Adds a line break
+                      tags$br(),# Adds a line break
+                      # Instructions or additional text
+                      tags$p(tags$b(tags$i("For more information, and code, visit the GitHub repository:")),
+                             style = "text-align: center; margin-top: 20px;"), # Centered text
+                      
+                      # GitHub logo with link, centered
+                      div(style = "text-align: center;", # Center the contents of the div
+                          tags$a(href = "https://github.com/Madhvimm/Federal_Spending_Dashboard", 
+                                 tags$img(src = "github-mark.png", height = "40px"),
+                                 target = "_blank" # Opens the link in a new tab
+                          )
+                      ),
+                      tags$br(),# Adds a line break
+                      tags$br(),# Adds a line break
+                      tags$br()# Adds a line break
                       )
                )
              ),
