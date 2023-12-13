@@ -15,7 +15,7 @@ The data fueling this dashboard is sourced directly from USA Spending , the offi
 The visualizations are designed to be intuitive, allowing users to explore data at both macro and micro levels. As you interact with the dashboard, you will find that selecting a state or agency dynamically updates all components, including the map, bar chart, and the detailed data table, providing a cohesive and comprehensive view of federal spending.
 
 
-In this [dashboard]([url](https://eidc.shinyapps.io/dataviz/)) you will find:
+**In this dashboard you will find:**
 
 
 - An interactive geographical map displaying spending data by state.
