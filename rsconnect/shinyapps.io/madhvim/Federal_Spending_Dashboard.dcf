@@ -5,7 +5,7 @@ account: madhvim
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10793988
-bundleId: 8046522
+bundleId: 8046550
 url: https://eidc.shinyapps.io/Federal_Spending_Dashboard/
 version: 1
 asMultiple: FALSE
