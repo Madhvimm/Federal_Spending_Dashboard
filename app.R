@@ -58,7 +58,7 @@ ui <- fluidPage(
   ),
   
   # Horizontal line
-  tags$hr(style = "border-top: 0.5px solid #ccc;"),
+  tags$hr(style = "border-top: 1px solid #ccc;"),
   
   
   # Create a tabset that includes two tabs
@@ -146,6 +146,7 @@ ui <- fluidPage(
     # Second tab with the analysis components
     tabPanel(
       "Analysis",
+      tags$br(),# Adds a line break
       wellPanel(
         uiOutput("dynamicMessageBox"), # Dynamic message box with custom styling
         style = "background-color: #BBBCBC;
