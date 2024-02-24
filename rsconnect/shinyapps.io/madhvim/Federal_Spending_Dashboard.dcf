@@ -1,11 +1,19 @@
 name: Federal_Spending_Dashboard
+<<<<<<< HEAD
 title:
+=======
+title: Federal_Spending_Dashboard
+>>>>>>> 3e252144c76ad3d5f0a8ffc601dcbaf026b691a3
 username: madhvim
 account: madhvim
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10793988
+<<<<<<< HEAD
 bundleId: 8293254
+=======
+bundleId: 8046550
+>>>>>>> 3e252144c76ad3d5f0a8ffc601dcbaf026b691a3
 url: https://eidc.shinyapps.io/Federal_Spending_Dashboard/
 version: 1
 asMultiple: FALSE
