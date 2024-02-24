@@ -15,6 +15,7 @@ library(sf)
 library(plotly)
 library(colorspace)
 library(DT)
+library(scales) # for the comma function
 
 
 # Download and process state shapefile data
@@ -403,7 +404,7 @@ server <- function(input, output, session) {
       filtered_data <- filtered_data %>% filter(agency_identifier_name == selected_agency_name)
     }
     
-    # Select relevant columns
+    # Select relevant columns and format transaction_obligated_amount
     display_data <- filtered_data %>%
       select(submission_period,
              agency_identifier_name,
@@ -415,10 +416,15 @@ server <- function(input, output, session) {
              recipient_name,
              recipient_state,
              recipient_county,
-             recipient_city)
+             recipient_city) %>%
+      mutate(transaction_obligated_amount = if_else(
+        transaction_obligated_amount == floor(transaction_obligated_amount),
+        scales::comma(transaction_obligated_amount),
+        scales::comma(transaction_obligated_amount, accuracy = 0.01)
+      ))
     
-    # Render the data table with DataTables
-    DT::datatable(display_data, options = list(pageLength = 5))
+    # Render the data table
+    DT::datatable(display_data, options = list(pageLength = 5), escape = FALSE)
   })
   
   #### Reset Button State

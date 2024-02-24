@@ -1,11 +1,11 @@
 name: Federal_Spending_Dashboard
-title: Federal_Spending_Dashboard
+title:
 username: madhvim
 account: madhvim
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10793988
-bundleId: 8046550
+bundleId: 8293254
 url: https://eidc.shinyapps.io/Federal_Spending_Dashboard/
 version: 1
 asMultiple: FALSE
