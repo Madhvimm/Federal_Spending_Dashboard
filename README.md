@@ -1,4 +1,4 @@
-**Welcome to the Federal Spending Analysis Dashboard!**
+**Welcome to the Federal Spending Analysis Dashboard**
 
 This interactive dashboard is designed to offer a comprehensive view of federal spending across the United States, tailored to be accessible and informative for a diverse audience. Whether you're a policy analyst, researcher, educator, or a curious citizen, this tool aims to demystify the complexities of government spending.
 
