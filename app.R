@@ -158,10 +158,20 @@ ui <- fluidPage(
       ),
       hr(), # Line separator
       fluidRow(
-        column(6, actionButton("resetStates", "Reset Map", class = "btn-primary",
-                               style = "font-family: 'Georgia', 'serif';")), # Font for reset button
-        column(6, actionButton("resetAgency", "Reset Chart", class = "btn-primary",
-                               style = "font-family: 'Georgia', 'serif';")) # Font for reset button
+        column(6,
+               actionButton("resetStates", "Reset Map", class = "btn-primary",
+                            style = "font-family: 'Georgia', 'serif';"), # Font for reset button
+               selectInput("stateSelect", "Select State:",
+                           choices = c("All States", sort(unique(original_data$recipient_state))),
+                           selected = "All States") # State dropdown
+        ),
+        column(6,
+               actionButton("resetAgency", "Reset Chart", class = "btn-primary",
+                            style = "font-family: 'Georgia', 'serif';"), # Font for reset button
+               selectInput("agencySelect", "Select Agency:",
+                           choices = c("All Agencies", sort(unique(original_data$agency_identifier_name))),
+                           selected = "All Agencies") # Agency dropdown
+        )
       ),
       hr(), # Line separator
       fluidRow(
@@ -216,6 +226,26 @@ server <- function(input, output, session) {
     # Create a color palette based on the spending range
     colorNumeric(palette = custom_palette, domain = spending_range)
   })
+  
+  # Update the selected states based on dropdown
+  observeEvent(input$stateSelect, {
+    if (input$stateSelect != "All States") {
+      selected_states(input$stateSelect)
+    } else {
+      selected_states(NULL)  # NULL implies all states are selected
+    }
+  }, ignoreInit = TRUE)
+  
+  # Update the selected agency based on dropdown
+  observeEvent(input$agencySelect, {
+    if (input$agencySelect != "All Agencies") {
+      selected_agency(input$agencySelect)
+    } else {
+      selected_agency(NULL)  # NULL implies all agencies are selected
+    }
+  }, ignoreInit = TRUE)
+  
+  
   
   # Render the map
   output$spendingMap <- renderLeaflet({
@@ -375,7 +405,8 @@ server <- function(input, output, session) {
   
   # Observe clicks on the reset button and reset the selected agency
   observeEvent(input$resetAgency, {
-    selected_agency(NULL)
+    selected_agency(NULL)  # NULL implies all agencies are selected
+    updateSelectInput(session, "agencySelect", selected = "All Agencies")
   })
   
   # Agency Title
@@ -431,7 +462,8 @@ server <- function(input, output, session) {
   
   # Observe clicks on the reset button for states and reset the selected states
   observeEvent(input$resetStates, {
-    selected_states(vector())
+    selected_states(NULL)  # NULL implies all states are selected
+    updateSelectInput(session, "stateSelect", selected = "All States")
   })
   
   # Display the selected states above the bar chart
